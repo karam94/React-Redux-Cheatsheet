@@ -77,3 +77,30 @@ class HelloWorld extends React.Component {
 	
 export default HelloWorld;
 ```
+
+## Displaying/Rendering Functions
+```jsx
+const HelloWorld = props => {
+  return (
+    <div className="danger">Hello {getUsername()}!</div>
+  );
+};
+
+function getUsername() {
+  return "John";
+}
+```
+
+```jsx
+const HelloWorld = props => {
+  return (
+    {printWelcomeMessage()}
+  );
+};
+
+function printWelcomeMessage() {
+  return (
+	  <div className="danger">Hello John!</div>
+  );
+}
+```
