@@ -8,9 +8,8 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
  - Displaying/Rendering functions
  - OnClick Event
 - Handling Forms/OnSubmit Event
- - Conditionals
-	 - If Rendering
-	 - Ternary If Rendering
+- Conditionals: If Rendering
+- Conditionals: Ternary If Rendering
 - Loops
 	- Map a list of elements
 - React Router
@@ -158,4 +157,35 @@ class NameForm extends React.Component {
 }
 
 export default NameForm;
+```
+
+## Conditionals: If Rendering
+```jsx
+render() {
+  return (
+    {DisplayMessage()}
+  );
+}
+
+function DisplayMessage() {
+  const { show } = this.state;
+  
+  if(show){
+    return (
+      <div>Hello World</div>
+    );
+  } else {
+      return (
+      <div>Goodbye World</div>
+    );
+  }
+}
+```
+## Conditionals: Ternary If Rendering
+```jsx
+render() {
+  return (
+    {this.state.show ? <div>Hello World</div> : <div>Goodbye World</div>}
+  );
+}
 ```
