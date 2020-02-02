@@ -7,6 +7,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
  - Class Component w/ Local State
  - Displaying/Rendering functions
  - OnClick Event
+- Handling Forms/OnSubmit Event
  - Conditionals
 	 - If Rendering
 	 - Ternary If Rendering
@@ -16,7 +17,6 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 	- Routing
 	- Routing with Parameters
 - Lifecycle Methods
-- Handling Forms
 - HTTP Requests
 - Snapshot Testing
 - Redux
@@ -100,7 +100,25 @@ const HelloWorld = props => {
 
 function printWelcomeMessage() {
   return (
-	  <div className="danger">Hello John!</div>
+    <div className="danger">Hello John!</div>
   );
 }
 ```
+
+## OnClick Event
+```jsx
+const HelloWorld = props => {
+  return (
+    <div className="danger">
+      Hello <a href="#" onClick={this.showWelcomeAlert}>John!</a>
+    </div>
+  );
+
+  showWelcomeAlert = (e) => {
+    e.preventDefault();
+    console.log('Welcome!');
+  }
+};
+```
+
+## Handling Forms/OnSubmit Event
