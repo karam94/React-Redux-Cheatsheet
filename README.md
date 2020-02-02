@@ -44,28 +44,32 @@ Functional Components are best used in components that do not require a construc
 Class Components are best used in components that require a constructor/local state or the use of lifecycle methods.
 
 ### With Props
-`<HelloWorld name="John" />`
+```jsx
+<HelloWorld name="John" />
+```
 
-	import React from  "react";
-	import  "./style.scss";
+```jsx
+import React from  "react";
+import  "./style.scss";
 	
-	class HelloWorld extends React.Component {
-		constructor(props){
-			super(props);
+class HelloWorld extends React.Component {
+	constructor(props){
+		super(props);
 		
-			this.state = {
-				city: "",
-				age: 10
-			}
-		}
-
-		render() {
-			const { name } = this.props; // Allows {name} instead of {props.name} below.
-			
-			return (
-				<div className="danger">Hello {name}!</div>
-			);
+		this.state = {
+			city: "",
+			age: 10			
 		}
 	}
+
+	render() {
+		const { name } = this.props; // Allows {name} instead of {props.name} below.
+			
+		return (
+			<div className="danger">Hello {name}!</div>
+		);
+	}
+}
 	
-	export default HelloWorld;
+export default HelloWorld;
+```
