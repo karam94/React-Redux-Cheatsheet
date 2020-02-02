@@ -1,6 +1,6 @@
 
 # React-Redux-Cheatsheet
-A React Redux cheatsheet. Made by myself, for myself, based on my own requirements &amp; how my head works. If it helps someone else, then awesome!
+A React Redux cheatsheet. Made by myself, for myself, based on my own requirements &amp; how my head works. If it helps someone else, then awesome! Pull requests with improvements are more than welcome.
 
 ## Table of Contents
  - Functional Component
@@ -11,16 +11,14 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - Conditionals: If Rendering
 - Conditionals: Ternary If Rendering
 - Loops: Map a list of elements
-- React Router
-	- Routing
-	- Routing with Parameters
+- React Router: Routing
+- React Router: Routing with Parameters
 - Lifecycle Methods
 - HTTP Requests
 - Snapshot Testing
-- Redux
-	- Types
-	- Reducers
-	- Actions
+- Redux: Types
+- Redux: Reducers
+- Redux: Actions
 
 ## Functional Component
 Functional Components are best used in components that do not require a constructor/local state or the use of lifecycle methods.
@@ -191,7 +189,8 @@ render() {
 ```
 
 ## Loops: Map a list of elements
-Loops through `cartItems`..
+Loops through `cartItems`...
+Note: If you are unfamiliar with where `cartItems` is coming from or the `mapPropsToState()` function, assume `cartItems` is just a list for now and ignore `react-redux`-related boilerplate.
 ```jsx
 import React from  "react";
 import { connect } from  "react-redux";
@@ -202,7 +201,7 @@ const CheckoutPage = ({ cartItems }) => {
   return (
     <div className="checkout-page">
       {cartItems.map(cartItem  => (
-        <CheckoutItem key={cartItem.id}  cartItem={cartItem}  />
+        <CheckoutItem key={cartItem.id} cartItem={cartItem}  />
       ))}
     </div>
   );
@@ -214,3 +213,5 @@ const mapStateToProps =  state  => ({
 
 export default connect(mapStateToProps)(CheckoutPage);
 ```
+
+## React Router: 
