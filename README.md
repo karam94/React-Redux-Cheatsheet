@@ -55,20 +55,20 @@ import  "./style.scss";
 class HelloWorld extends React.Component {
   constructor(props){
     super(props);
-		
-	this.state = {
-	  city: "",
-	  age: 10			
-	}
+
+    this.state = {
+      city: "",
+      age: 10			
+    }
   }
 
-	render() {
-		const { name } = this.props; // Allows {name} instead of {props.name} below.
-			
-		return (
-			<div className="danger">Hello {name}!</div>
-		);
-	}
+  render() {
+    const { name } = this.props; // Allows {name} instead of {props.name} below.
+
+    return (
+      <div className="danger">Hello {name}!</div>
+    );
+  }
 }
 	
 export default HelloWorld;
