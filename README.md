@@ -53,14 +53,14 @@ import React from  "react";
 import  "./style.scss";
 	
 class HelloWorld extends React.Component {
-	constructor(props){
-		super(props);
+  constructor(props){
+    super(props);
 		
-		this.state = {
-			city: "",
-			age: 10			
-		}
+	this.state = {
+	  city: "",
+	  age: 10			
 	}
+  }
 
 	render() {
 		const { name } = this.props; // Allows {name} instead of {props.name} below.
