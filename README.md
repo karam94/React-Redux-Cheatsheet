@@ -1,4 +1,5 @@
 
+
 # React-Redux-Cheatsheet
 A React Redux cheatsheet. Made by myself, for myself, based on my own requirements &amp; how my head works. If it helps someone else, then awesome! Pull requests with improvements are more than welcome.
 
@@ -214,4 +215,53 @@ const mapStateToProps =  state  => ({
 export default connect(mapStateToProps)(CheckoutPage);
 ```
 
-## React Router: 
+## React Router: Routing 
+If a Route has `exact` then it will only match the exact specified path. If it does not use `exact` then React Router will try and match the closest possible route and still try to navigate the user.
+
+The below in App.js sets up the routes, so that we can `<Link />` to them in components.
+```
+npm install react-router-dom 
+```
+```jsx
+import { Switch, Route, Redirect } from  "react-router-dom";
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route exact path="/" component={HomePage}  />
+          <Route path="/shop" component={ShopPage}  />
+          <Route 
+            exact path="/signin" 
+            render={() =>
+              this.props.currentUser ? (
+                <Redirect to="/" />
+              ) : (
+                <SignInAndSignUpPage />
+              )
+            }
+          />
+        </Switch>
+       </div>
+    );
+  }
+}
+```
+```jsx
+import { Link } from  "react-router-dom";
+
+<Link className="logo-container" to="/">
+  <Logo className="logo" />
+</Link>
+
+<div className="options">
+  <Link className="option" to="/shop">
+  SHOP
+  </Link>
+  
+  <Link  className="option"  to="/contact">
+  CONTACT
+  </Link>
+</div>
+```
