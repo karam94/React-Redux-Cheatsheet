@@ -10,8 +10,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - Handling Forms/OnSubmit Event
 - Conditionals: If Rendering
 - Conditionals: Ternary If Rendering
-- Loops
-	- Map a list of elements
+- Loops: Map a list of elements
 - React Router
 	- Routing
 	- Routing with Parameters
@@ -112,12 +111,12 @@ const HelloWorld = props => {
       Hello <a href="#" onClick={this.showWelcomeAlert}>John!</a>
     </div>
   );
-
-  showWelcomeAlert = (e) => {
-    e.preventDefault();
-    console.log('Welcome!');
-  }
 };
+
+showWelcomeAlert = (e) => {
+  e.preventDefault();
+  console.log('Welcome!');
+}
 ```
 
 ## Handling Forms/OnSubmit Event
@@ -181,6 +180,7 @@ function DisplayMessage() {
   }
 }
 ```
+
 ## Conditionals: Ternary If Rendering
 ```jsx
 render() {
@@ -188,4 +188,29 @@ render() {
     {this.state.show ? <div>Hello World</div> : <div>Goodbye World</div>}
   );
 }
+```
+
+## Loops: Map a list of elements
+Loops through `cartItems`..
+```jsx
+import React from  "react";
+import { connect } from  "react-redux";
+import CheckoutItem from  "../../components/checkout-item/checkout-item.component";
+import  "./checkout.styles.scss";
+
+const CheckoutPage = ({ cartItems }) => {
+  return (
+    <div className="checkout-page">
+      {cartItems.map(cartItem  => (
+        <CheckoutItem key={cartItem.id}  cartItem={cartItem}  />
+      ))}
+    </div>
+  );
+};
+
+const mapStateToProps =  state  => ({
+  cartItems: state.cart.cartItems
+});
+
+export default connect(mapStateToProps)(CheckoutPage);
 ```
