@@ -1,3 +1,4 @@
+
 # React-Redux-Cheatsheet
 A React Redux cheatsheet. Made by myself, for myself, based on my own requirements &amp; how my head works. If it helps someone else, then awesome!
 
@@ -27,18 +28,21 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 Functional Components are best used in components that do not require a constructor/local state or the use of lifecycle methods.
 
 ### With Props
-`<HelloWorld name="John" />`
-	
-	import React from  "react";
-	import  "./style.scss";
+```jsx
+<HelloWorld name="John" />
+```
+```jsx
+import React from  "react";
+import  "./style.scss";
 
-	const HelloWorld = props => {
-		return (
-			<div className="danger">Hello {props.name}!</div>
-		);
-	};
+const HelloWorld = props => {
+  return (
+    <div className="danger">Hello {props.name}!</div>
+  );
+};
 	
-	export default HelloWorld;
+export default HelloWorld;
+```
 
 ## Class Component w/ Local State
 Class Components are best used in components that require a constructor/local state or the use of lifecycle methods.
