@@ -4,7 +4,7 @@
 A React Redux cheatsheet. Made by myself, for myself, based on my own requirements &amp; how my head works. If it helps someone else, then awesome! Pull requests with improvements are more than welcome.
 
 ## Table of Contents
- - Functional Component
+ - [Functional Component](#Functional-Component)
  - Class Component w/ Local State
  - Children Components
  - Displaying/Rendering functions
@@ -18,6 +18,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - Lifecycle Methods
 - HTTP Requests
 - Enzyme/Snapshot Testing
+- Redux: Overview
 - Redux: Types
 - Redux: Reducers
 - Redux: Actions
