@@ -4,10 +4,10 @@
 A React Redux cheatsheet. Made by myself, for myself, based on my own requirements &amp; how my head works. If it helps someone else, then awesome! Pull requests with improvements are more than welcome.
 
 ## Table of Contents
- - [Functional Component](#Functional-Component)
- - Class Component w/ Local State
- - Children Components
- - Displaying/Rendering functions
+ - [Functional Components](#Functional-Components)
+ - [Class Components with Local State](#Class-Components-with-Local-State)
+ - [Children Components](#Children-Components)
+ - [Rendering functions](#Rendering-Functions)
  - OnClick Event
 - Handling Forms/OnSubmit Event
 - Conditionals: If Rendering
@@ -24,7 +24,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - Redux: Actions
 - React Hooks
 
-## Functional Component
+## Functional Components
 Functional Components are best used in components that do not require a constructor/local state or the use of lifecycle methods.
 
 ### With Props
@@ -44,7 +44,7 @@ const HelloWorld = props => {
 export default HelloWorld;
 ```
 
-## Class Component w/ Local State
+## Class Components with Local State
 Class Components are best used in components that require a constructor/local state or the use of lifecycle methods.
 
 ### With Props
@@ -96,7 +96,7 @@ const HelloWorld = ({ children }) => {
 	
 export default HelloWorld;
 ```
-## Displaying/Rendering Functions
+## Rendering Functions
 ```jsx
 const HelloWorld = props => {
   return (
