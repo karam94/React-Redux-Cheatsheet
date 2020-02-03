@@ -6,6 +6,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 ## Table of Contents
  - Functional Component
  - Class Component w/ Local State
+ - Children Components
  - Displaying/Rendering functions
  - OnClick Event
 - Handling Forms/OnSubmit Event
@@ -20,6 +21,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - Redux: Types
 - Redux: Reducers
 - Redux: Actions
+- React Hooks
 
 ## Functional Component
 Functional Components are best used in components that do not require a constructor/local state or the use of lifecycle methods.
@@ -74,7 +76,25 @@ class HelloWorld extends React.Component {
 	
 export default HelloWorld;
 ```
+## Children Components
+```jsx
+<HelloWorld name="John">
+  Greetings
+</HelloWorld>
+```
+```jsx
+import React from  "react";
+import  "./style.scss";
 
+// Prints: "Greetings John!"
+const HelloWorld = ({ children }) => {
+  return (
+    <div className="danger">{children} {props.name}!</div>
+  );
+};
+	
+export default HelloWorld;
+```
 ## Displaying/Rendering Functions
 ```jsx
 const HelloWorld = props => {
@@ -260,6 +280,7 @@ import { Link } from  "react-router-dom";
 ## React Router: Routing with Parameters
 ```jsx
 import { Switch, Route } from  "react-router-dom";
+import ShopComponent from "./shopComponent";
 
 <div>
   <Switch>
@@ -279,3 +300,14 @@ const ShopComponent = ({ match }) => {
 	
 export default ShopComponent;
 ```
+
+## Lifecycle Methods
+|Method|Explanation  |
+|--|--|
+| render() | Renders your component. Occurs during the mounting & updating of a component. |
+| componentDidMount() | Called as soon as a component is mounted and ready. Good place to initiate initial API calls to populate a component's data from.|
+| componentDidUpdate() | Called whenever a component is updated. Good place to react to prop or state changes. |
+| componentWillUnmount() | Called just before a component is unmounted and destroyed. |
+| shouldComponentUpdate() | Used to provide a bool function, who's output determines whether to update a component or not. |
+| getDerivedStateFromProps() | Called just before render(), right after props are updated. |
+| getSnapshotBeforeUpdate() | Called just before a component is updated. The value returned is passed on to componentDidUpdate(). |
