@@ -251,17 +251,31 @@ class App extends React.Component {
 ```jsx
 import { Link } from  "react-router-dom";
 
-<Link className="logo-container" to="/">
-  <Logo className="logo" />
-</Link>
-
 <div className="options">
-  <Link className="option" to="/shop">
-  SHOP
-  </Link>
-  
-  <Link  className="option"  to="/contact">
-  CONTACT
-  </Link>
+  <Link className="option" to="/shop">SHOP</Link>
+  <Link className="option" to="/contact">CONTACT</Link>
 </div>
+```
+
+## React Router: Routing with Parameters
+```jsx
+import { Switch, Route } from  "react-router-dom";
+
+<div>
+  <Switch>
+    <Route path="/shop/:shopId" component={ShopComponent}>SHOP</Link>
+    <Route path="/contact">CONTACT</Link>
+  </Switch>
+</div>
+```
+```jsx
+import React from  "react";
+
+const ShopComponent = ({ match }) => {
+  return (
+    <div>Your shop id is: {match.params.shopId}!</div>
+  );
+};
+	
+export default ShopComponent;
 ```
