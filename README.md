@@ -311,3 +311,45 @@ export default ShopComponent;
 | shouldComponentUpdate() | Used to provide a bool function, who's output determines whether to update a component or not. |
 | getDerivedStateFromProps() | Called just before render(), right after props are updated. |
 | getSnapshotBeforeUpdate() | Called just before a component is updated. The value returned is passed on to componentDidUpdate(). |
+
+## HTTP Requests
+`npm install axios`
+
+### GET
+```js
+axios.get('/user', {
+params: {id: 1}
+}).then(function (response) {
+   //some logic here
+})
+.catch(function (error) {
+   //some logic here
+})
+.finally(function () {
+   //some logic here
+});
+```
+
+### POST
+```js
+axios.post('/user', {
+    firstName: 'Bob',
+    id: 2
+}).then(function (response) {
+    //some logic here
+})
+.catch(function (error) {
+    //some logic here
+});
+```
+
+### Async/Await
+```js
+getUsers = async () => {
+  let res = await axios.get("/user?id=1");
+  let { data } = res.data;
+  this.setState({ users: data });
+};
+```
+
+## Snapshot Testing
