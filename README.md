@@ -17,7 +17,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - React Router: Routing with Parameters
 - Lifecycle Methods
 - HTTP Requests
-- Snapshot Testing
+- Enzyme/Snapshot Testing
 - Redux: Types
 - Redux: Reducers
 - Redux: Actions
@@ -352,4 +352,29 @@ getUsers = async () => {
 };
 ```
 
-## Snapshot Testing
+## Enzyme/Snapshot Testing
+```js
+// setupTests.js
+import { configure } from  "enzyme";
+import Adapter from  "enzyme-adapter-react-16";
+
+configure({ adapter:  new  Adapter() });
+```
+```js
+import { shallow, mount } from  "enzyme";
+import React from  "react";
+import CustomButton from  "/custom-button.component";
+
+it("expect to render CustomButton component", () => {
+  expect(shallow(<CustomButton  />).length).toEqual(1);
+});
+
+it("expect to render CustomButton component snapshot", () => {
+  expect(shallow(<CustomButton  />)).toMatchSnapshot();
+});
+
+it("expect to render Google CustomButton component snapshot", () => {
+  const wrapper =  mount(<CustomButton  isGoogleSignIn  />);
+  expect(wrapper.find(".custom-button").hasClass("google-sign-in")).toEqual(true);
+});
+```
