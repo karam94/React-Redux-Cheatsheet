@@ -8,9 +8,9 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
  - [Class Components with Local State](#Class-Components-with-Local-State)
  - [Children Components](#Children-Components)
  - [Rendering functions](#Rendering-Functions)
- - OnClick Event
-- Handling Forms/OnSubmit Event
-- Conditionals: If Rendering
+ - [OnClick Event](#OnClick-Event)
+- [Handling Forms and OnSubmit Event](#Handling-Forms-and-OnSubmit-Event)
+- [Conditionals: If Rendering](#Conditionals-If-Rendering)
 - Conditionals: Ternary If Rendering
 - Loops: Map a list of elements
 - React Router: Routing
