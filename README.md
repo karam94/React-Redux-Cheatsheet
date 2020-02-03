@@ -11,18 +11,18 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
  - [OnClick Event](#OnClick-Event)
 - [Handling Forms and OnSubmit Event](#Handling-Forms-and-OnSubmit-Event)
 - [Conditionals: If Rendering](#Conditionals-If-Rendering)
-- Conditionals: Ternary If Rendering
-- Loops: Map a list of elements
-- React Router: Routing
-- React Router: Routing with Parameters
-- Lifecycle Methods
-- HTTP Requests
-- Enzyme/Snapshot Testing
-- Redux: Overview
-- Redux: Types
-- Redux: Reducers
-- Redux: Actions
-- React Hooks
+- [Conditionals: Ternary If Rendering](#Conditions-Ternary-If-Rendering)
+- [Loops: Map a list of elements](#Loops-Map-a-List-of-Elements)
+- [React Router: Routing](#React-Router-Routing)
+- [React Router: Routing with Parameters](#React-Router-Routing-with-Parameters)
+- [Lifecycle Methods](#Lifecycle-Methods)
+- [HTTP Requests](#HTTP-Requests)
+- [Enzyme/Snapshot Testing](#Enzyme-Snapshot-Testing)
+- [Redux: Overview](#Redux-Overview)
+- [Redux: Types](#Redux-Types)
+- [Redux: Reducers](#Redux-Reducers)
+- [Redux: Actions](#Redux-Actions)
+- [React Hooks](#React-Hooks)
 
 ## Functional Components
 Functional Components are best used in components that do not require a constructor/local state or the use of lifecycle methods.
