@@ -400,9 +400,24 @@ React-Redux is the official implementation of Redux for React. Its purpose is to
 The core ideas behind Redux are based on ideas from Flux, CQRS & Event Sourcing. The global redux state object is immutable, without setters. This means it is not possible to modify an object in state with a line as simple as `this.state.name = "Bob";` such as in alternative similar solutions such as Vuex in the VueJS eco-system. Nor are there setter methods on the state object.
 
 - To change a value within the Redux state, an **Action** must be despatched.
-- Actions have both a **type** and a **payload**.
+- Actions contain both a **type** and a **payload**.
 -- Types are unique string identifiers for an action. 
--- The Payload is the new object we want to overwrite the existing value in state, with.
-- **Reducers** contain an initial state and listen for Actions. An action will map to a pure function within the reducer. These pure functions take the existing state alongside the Action arguments, then return a new object that represents the updated version of the global Redux state.
+-- The payload is the new object we want to overwrite an existing value in state, with.
+- **Reducers** listen for Actions. An action will map to a pure function within the reducer. These pure functions take the existing state alongside the Action arguments, then return a new object that represents the updated version of the global Redux state. Most of the time this will be the old global state with changes made to it, reflecting the Action payload.
 
 ## Redux: Actions
+```js
+import { UserActionTypes } from  "./user.types";
+
+export const setCurrentUser =  user  => ({
+  type: UserActionTypes.SET_CURRENT_USER,
+  payload: user
+});
+```
+## Redux: Types
+```js
+export const UserActionTypes = {
+  SET_CURRENT_USER: "SET_CURRENT_USER"
+};
+```
+## Redux: Reducers
