@@ -19,9 +19,9 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - [HTTP Requests](#HTTP-Requests)
 - [Enzyme/Snapshot Testing](#Enzyme-Snapshot-Testing)
 - [Redux: Overview](#Redux-Overview)
+- [Redux: Actions](#Redux-Actions)
 - [Redux: Types](#Redux-Types)
 - [Redux: Reducers](#Redux-Reducers)
-- [Redux: Actions](#Redux-Actions)
 - [React Hooks](#React-Hooks)
 
 ## Functional Components
@@ -391,5 +391,18 @@ it("should call closeAction when the close button clicked", () => {
      
   wrapper.find(".btnDelete").simulate("click");
   expect(closeAction.mock.calls.length).toBe(1);
- });
+});
 ```
+
+## Redux: Overview
+React-Redux is the official implementation of Redux for React. Its purpose is to allow React applications to share a global state alongside their own local state. As React applications made up of numerous React components grow, this reduces the need to pass around a large number of props between components.
+
+The core ideas behind Redux are based on ideas from Flux, CQRS & Event Sourcing. The global redux state object is immutable, without setters. This means it is not possible to modify an object in state with a line as simple as `this.state.name = "Bob";` such as in alternative similar solutions such as Vuex in the VueJS eco-system. Nor are there setter methods on the state object.
+
+- To change a value within the Redux state, an **Action** must be despatched.
+- Actions have both a **type** and a **payload**.
+-- Types are unique string identifiers for an action. 
+-- The Payload is the new object we want to overwrite the existing value in state, with.
+- **Reducers** contain an initial state and listen for Actions. An action will map to a pure function within the reducer. These pure functions take the existing state alongside the Action arguments, then return a new object that represents the updated version of the global Redux state.
+
+## Redux: Actions
