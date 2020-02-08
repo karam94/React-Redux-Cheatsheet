@@ -364,7 +364,9 @@ configure({ adapter:  new  Adapter() });
 ```js
 import { shallow, mount } from  "enzyme";
 import React from  "react";
-import CustomButton from  "/custom-button.component";
+import toJson from  'enzyme-to-json';
+import CustomButton from  "./custom-button.component";
+import Modal from "./modal.component";
 
 it("expect to render CustomButton component", () => {
   expect(shallow(<CustomButton  />).length).toEqual(1);
@@ -375,7 +377,19 @@ it("expect to render CustomButton component snapshot", () => {
 });
 
 it("expect to render Google CustomButton component snapshot", () => {
-  const wrapper =  mount(<CustomButton  isGoogleSignIn  />);
+  const wrapper = toJson(mount(<CustomButton  isGoogleSignIn  />));
   expect(wrapper.find(".custom-button").hasClass("google-sign-in")).toEqual(true);
 });
+
+ it("should call closeAction when the close button clicked", () => {
+   const closeAction = jest.fn();
+   const wrapper = shallow(
+   <Modal isOpen={false} closeAction={closeAction}>
+     Contents of the Modal
+   </Modal>
+   );
+ 
+   wrapper.find(".btnDelete").simulate("click");
+   expect(closeAction.mock.calls.length).toBe(1);
+ });
 ```
