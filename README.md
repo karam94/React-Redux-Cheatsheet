@@ -22,6 +22,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - [Redux: Actions](#Redux-Actions)
 - [Redux: Types](#Redux-Types)
 - [Redux: Reducers](#Redux-Reducers)
+- [Redux: Updating State](#Redux-Updating-State)
 - [React Hooks](#React-Hooks)
 
 ## Functional Components
@@ -443,3 +444,65 @@ switch (action.type) {
 
 export default userReducer;
 ```
+## Redux: Updating State
+### Functional Component Example
+```js
+import { connect } from  "react-redux";
+import { toggleCartHidden } from  "../../redux/cart/cart.actions";
+
+const CartIcon = ({ toggleCartHidden, cartItemCount }) => {
+  return (
+    <div className="cart-icon" onClick={toggleCartHidden}>
+      <span className="item-count">{cartItemCount}</span>
+    </div>
+  );
+};
+
+// Sets local component state of cartItemCount  
+// to equal state.cart.cartItemCount in redux global state
+const mapStateToProps = state => ({
+  cartItemCount: state.cart.cartItemCount
+});
+
+// Whenever toggleCartHidden() is called (e.g. onClick)  
+// Trigger the toggleCartHidden() action... 
+// This in return triggers a reducer function to run & change global state
+// Note: You have to inject actions in the
+// functional component props area, as well as importing it.
+const mapDispatchToProps = dispatch => ({
+  toggleCartHidden: () => dispatch(toggleCartHidden())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
+```
+
+### Class Component Example
+```js
+import { connect } from "react-redux";
+import { setCurrentUser } from "./redux/user/user.actions";
+
+class ComponentName extends React.Component {
+  constructor(props){  
+    super(props);  
+    this.state =  { 
+      currentUser:  ""
+    }
+  }
+  ...
+}
+
+// Sets local component state of currentUser
+// to equal user.currentUser in redux global state
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
+// Whenever local props is changed using setCurrentUser
+// Dispatch the plain object output of the setCurrentUser()
+// method from user.reducer.js to overwrite redux global state
+const mapDispatchToProps =  dispatch  => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ComponentName);
+``
