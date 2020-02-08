@@ -384,9 +384,9 @@ it("expect to render Google CustomButton component snapshot", () => {
 it("should call closeAction when the close button clicked", () => {
   const closeAction = jest.fn();
   const wrapper = shallow(
-  <Modal isOpen={false} closeAction={closeAction}>
-    Contents of the Modal
-  </Modal>
+    <Modal isOpen={false} closeAction={closeAction}>
+      Contents of the Modal
+    </Modal>
   );
      
   wrapper.find(".btnDelete").simulate("click");
