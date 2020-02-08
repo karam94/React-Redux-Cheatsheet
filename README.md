@@ -381,15 +381,15 @@ it("expect to render Google CustomButton component snapshot", () => {
   expect(wrapper.find(".custom-button").hasClass("google-sign-in")).toEqual(true);
 });
 
- it("should call closeAction when the close button clicked", () => {
-   const closeAction = jest.fn();
-   const wrapper = shallow(
-   <Modal isOpen={false} closeAction={closeAction}>
-     Contents of the Modal
-   </Modal>
-   );
- 
-   wrapper.find(".btnDelete").simulate("click");
-   expect(closeAction.mock.calls.length).toBe(1);
+it("should call closeAction when the close button clicked", () => {
+  const closeAction = jest.fn();
+  const wrapper = shallow(
+  <Modal isOpen={false} closeAction={closeAction}>
+    Contents of the Modal
+  </Modal>
+  );
+     
+  wrapper.find(".btnDelete").simulate("click");
+  expect(closeAction.mock.calls.length).toBe(1);
  });
 ```
