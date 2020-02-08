@@ -7,7 +7,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
  - [Functional Components](#Functional-Components)
  - [Class Components with Local State](#Class-Components-with-Local-State)
  - [Children Components](#Children-Components)
- - [Rendering functions](#Rendering-Functions)
+ - [Rendering Functions](#Rendering-Functions)
  - [OnClick Event](#OnClick-Event)
 - [Handling Forms and OnSubmit Event](#Handling-Forms-and-OnSubmit-Event)
 - [Conditionals: If Rendering](#Conditionals-If-Rendering)
@@ -19,6 +19,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - [HTTP Requests](#HTTP-Requests)
 - [Enzyme/Snapshot Testing](#Enzyme-Snapshot-Testing)
 - [Redux: Overview](#Redux-Overview)
+- [Redux: Setting Up](#Redux-Setting-Up)
 - [Redux: Actions](#Redux-Actions)
 - [Redux: Types](#Redux-Types)
 - [Redux: Reducers](#Redux-Reducers)
@@ -505,4 +506,4 @@ const mapDispatchToProps =  dispatch  => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ComponentName);
-``
+```
