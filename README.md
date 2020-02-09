@@ -17,6 +17,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - [React Router: Routing with Parameters](#React-Router-Routing-with-Parameters)
 - [Lifecycle Methods](#Lifecycle-Methods)
 - [React Hooks](#React-Hooks)
+- [React Hooks: Lifecycle Methods](#React-Hooks)
 - [HTTP Requests](#HTTP-Requests)
 - [Enzyme/Snapshot Testing](#Enzyme-Snapshot-Testing)
 - [Redux: Overview](#Redux-Overview)
@@ -350,6 +351,44 @@ const HelloWorld = props => {
 };
 	
 export default HelloWorld;
+```
+
+## React Hooks: Lifecycle Methods
+|Hook|Replaces/Explanation  |
+|--|--|
+| `useState()` | As shown above |
+| `useEffect()` | `componentDidMount`, `componentDidUpdate` & `componentWillUnmount` |
+| `useContext()` | [https://reactjs.org/docs/hooks-reference.html#usecontext](https://reactjs.org/docs/hooks-reference.html#usecontext)|
+| `useReducer()` | [https://reactjs.org/docs/hooks-reference.html#usereducer](https://reactjs.org/docs/hooks-reference.html#usereducer)|
+
+Example usage of `useEffect()` where whenever `state.selectedFeedbackFor` changes, `fetchCards()` is called and the DOM is re-rendered as a result:
+```jsx
+import React, { useState, useEffect } from  "react";
+import Card from  "../Card/card.component.js";
+
+const Feedback = () => {
+  const [state, setState] =  useState({ feedback: [], selectedFeedbackFor: ""});
+
+  const fetchCards = () => {
+    return fetch(`/api/feedback?id=${state.selectedFeedbackFor}`)
+      .then(response  => {
+        return response.json();
+      })
+      .then(responseJson  => {
+        setState({ ...state, feedback: responseJson });
+      });
+  };
+
+  useEffect(() => {
+    fetchCards();
+  }, [state.selectedFeedbackFor]);
+
+  return (
+    ...
+  );
+};
+  
+export default Feedback;
 ```
 
 ## HTTP Requests
