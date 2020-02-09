@@ -20,8 +20,8 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - [Enzyme/Snapshot Testing](#Enzyme-Snapshot-Testing)
 - [Redux: Overview](#Redux-Overview)
 - [Redux: Setting Up](#Redux-Setting-Up)
-- [Redux: Actions](#Redux-Actions)
 - [Redux: Types](#Redux-Types)
+- [Redux: Actions](#Redux-Actions)
 - [Redux: Reducers](#Redux-Reducers)
 - [Redux: Updating State](#Redux-Updating-State)
 - [React Hooks](#React-Hooks)
@@ -407,6 +407,56 @@ The core ideas behind Redux are based on ideas from Flux, CQRS & Event Sourcing.
 -- The payload is the new object we want to overwrite an existing value in state, with.
 - **Reducers** listen for Actions. An action will map to a pure function within the reducer. These pure functions take the existing state alongside the Action arguments, then return a new object that represents the updated version of the global Redux state. Most of the time this will be the old global state with changes made to it, reflecting the Action payload.
 
+## Redux: Setting Up
+```
+npm install redux
+npm install react-redux
+npm install redux-logger #optional
+```
+
+Create a root-reducer.js:
+```js
+import { combineReducers } from 'redux';
+import exampleReducer from './example/example.reducer';
+
+export default combineReducers({
+  example: exampleReducer
+});
+```
+
+Create a store.js:
+```js
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+import rootReducer from './root-reducer';
+
+const middlewares = [logger];
+const store = createStore(rootReducer, applyMiddleware(...middlewares));
+
+export default store;
+```
+
+In your index.js, import the react-redux Provider and surround your application in it:
+```js
+import { Provider } from "react-redux";
+import { store } from  "./redux/store";
+import App from "./App";
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
+```
+
+## Redux: Types
+```js
+export const UserActionTypes = {
+  SET_CURRENT_USER: "SET_CURRENT_USER"
+};
+```
+
 ## Redux: Actions
 ```js
 import { UserActionTypes } from  "./user.types";
@@ -416,12 +466,7 @@ export const setCurrentUser =  user  => ({
   payload: user
 });
 ```
-## Redux: Types
-```js
-export const UserActionTypes = {
-  SET_CURRENT_USER: "SET_CURRENT_USER"
-};
-```
+
 ## Redux: Reducers
 ```js
 import { UserActionTypes } from  "./user.types";
