@@ -194,11 +194,6 @@ class NameForm extends React.Component {
     };
   }
 
-  handleChange = event => {
-    const { value } = event.target;
-    this.setState({value: value});
-  }
-
   handleSubmit = event => {
     event.preventDefault();
     alert('A name was submitted: ' + this.state.value);
