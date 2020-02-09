@@ -3,6 +3,8 @@
 # React-Redux-Cheatsheet
 A React Redux cheatsheet. Made by myself, for myself, based on my own requirements &amp; how my head works. If it helps someone else, then awesome! Pull requests with improvements are more than welcome.
 
+**NOTE: There may be code snippets below which are not 100% accurate and need adjusting to work correctly. I will be addressing them over time, but for now, this does the job sufficiently.**
+
 ## Table of Contents
  - [Functional Components](#Functional-Components)
  - [Class Components with Local State](#Class-Components-with-Local-State)
