@@ -16,6 +16,7 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - [React Router: Routing](#React-Router-Routing)
 - [React Router: Routing with Parameters](#React-Router-Routing-with-Parameters)
 - [Lifecycle Methods](#Lifecycle-Methods)
+- [React Hooks](#React-Hooks)
 - [HTTP Requests](#HTTP-Requests)
 - [Enzyme/Snapshot Testing](#Enzyme-Snapshot-Testing)
 - [Redux: Overview](#Redux-Overview)
@@ -24,7 +25,6 @@ A React Redux cheatsheet. Made by myself, for myself, based on my own requiremen
 - [Redux: Actions](#Redux-Actions)
 - [Redux: Reducers](#Redux-Reducers)
 - [Redux: Updating State](#Redux-Updating-State)
-- [React Hooks](#React-Hooks)
 
 ## Functional Components
 Functional Components are best used in components that do not require a constructor/local state or the use of lifecycle methods.
@@ -315,6 +315,43 @@ export default ShopComponent;
 | getDerivedStateFromProps() | Called just before render(), right after props are updated. |
 | getSnapshotBeforeUpdate() | Called just before a component is updated. The value returned is passed on to componentDidUpdate(). |
 
+## React Hooks
+React Hooks allow functional components to now utilise and store their own state, which was previously only possible for class components.
+
+```jsx
+import React, { useState } from  "react";
+import "./style.scss";
+
+const HelloWorld = props => {
+  const [age, setAge] = useState(0); // age is a variable in the component state
+  setAge(20); // can now call setAge() method to modify it
+  
+  return (
+    <div className="danger">Hello {props.name}!</div>
+  );
+};
+	
+export default HelloWorld;
+```
+
+It is also possible to store several variables in state using React Hooks.
+
+```jsx
+import React, { useState } from  "react";
+import "./style.scss";
+
+const HelloWorld = props => {
+  const [state, setState] = useState({ age: 0, height: 0 });
+  setState({ ...state, age: 20 }); // possible to use the spread operator!
+  
+  return (
+    <div className="danger">Hello {props.name}!</div>
+  );
+};
+	
+export default HelloWorld;
+```
+
 ## HTTP Requests
 `npm install axios`
 
@@ -405,13 +442,13 @@ The core ideas behind Redux are based on ideas from Flux, CQRS & Event Sourcing.
 - Actions contain both a **type** and a **payload**.
 -- Types are unique string identifiers for an action. 
 -- The payload is the new object we want to overwrite an existing value in state, with.
-- **Reducers** listen for Actions. An action will map to a pure function within the reducer. These pure functions take the existing state alongside the Action arguments, then return a new object that represents the updated version of the global Redux state. Most of the time this will be the old global state with changes made to it, reflecting the Action payload.
+- **Reducers** listen for Actions. An action will map to a pure function within the reducer. These pure functions take the existing state alongside the Action arguments, then return a new object that represents the updated version of the global Redux state. Most of the time this will be the old global state with changes made to it, reflecting the Action payload. The changes to the DOM are then reflected.
 
 ## Redux: Setting Up
 ```
 npm install redux
 npm install react-redux
-npm install redux-logger #optional
+// npm install redux-logger #optional
 ```
 
 Create a root-reducer.js:
